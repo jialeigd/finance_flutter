@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_sohu_finance/page/Mine/SHFMinePage.dart';
 import './Home/SHFHomePage.dart';
 import './Mine/SHFMinePage.dart';
 import './Market/SHFMarketPage.dart';

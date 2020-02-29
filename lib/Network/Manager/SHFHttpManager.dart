@@ -5,6 +5,8 @@ import 'SHFHttpResultData.dart';
 import 'SHFHttpDataHelper.dart';
 import 'SHFResponseInterceptor.dart';
 
+typedef RequestCallBack<T> = void Function(T value);
+
 class SHFHttpManager {
   static SHFHttpManager _instance = SHFHttpManager._internal();
   Dio _dio;
@@ -62,7 +64,7 @@ class SHFHttpManager {
       return resultError(response.data['code']);
     }
 
-    return response.data;
+    return response.data.toString();
   }
 
   ///通用的POST请求

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sohu_finance/Model/SHFChannelModel.dart';
+import 'package:flutter_sohu_finance/Model/SHFVideoChannelModel.dart';
+import 'package:flutter_sohu_finance/Network/Api/SHFChannelApi.dart';
 
 TabController tabController;
 List<Widget> tabList;
@@ -11,10 +14,14 @@ class SHFHomePage extends StatefulWidget {
 class _SHFHomePageState extends State<SHFHomePage> with SingleTickerProviderStateMixin {
 
   var tabbar;
+  List<SHFVideoChannelModel> channels;
 
   @override
   void initState() {
     super.initState();
+    SHFChannelApi.videoChannelRequest((channelList) {
+      channels = channelList;
+    });
     tabbar = HomePageTabBar();
     tabList = getTabList();
     tabController = TabController(vsync: this, length: tabList.length);
